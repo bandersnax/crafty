@@ -88,6 +88,7 @@ services:
 networks:
   default:
     name: crafty-oss
+    enable_ipv6: false
 
 volumes:
   puppetserver:
