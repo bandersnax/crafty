@@ -8,7 +8,7 @@ services:
       PUPPETSERVER_HOSTNAME: puppet
       PUPPETSERVER_PORT: 8140
       PUPPETDB_HOSTNAME: puppetdb
-      PUPPETDB_SSL_PORT: 8080
+      PUPPETDB_SSL_PORT: 8081
       USE_PUPPETDB: true
       AUTOSIGN: true
       CSR_ATTRIBUTES: '{"custom_attributes": { "challengePassword": "foobar" }, "extension_requests": { "pp_project": "foo" } }'
@@ -68,15 +68,15 @@ services:
     hostname: puppetboard
     environment:
       - PUPPETDB_HOST=puppetdb
-      # - PUPPETDB_PORT=8081 # use this for TLS
-      - PUPPETDB_PORT=8080  # Use this for non-TLS
+      - PUPPETDB_PORT=8081 # use this for TLS
+      # - PUPPETDB_PORT=8080  # Use this for non-TLS
       - PUPPETBOARD_PORT=8088
       - SECRET_KEY=628c4e02daaaca2b90242491f607d3704153d424f215ac51b1dd873055e102a5  # Long random String : python3 -c 'import secrets; print(secrets.token_hex())'
       # if you wanna use SSL, you need to provide the following variables
       # see the README.md for more information, look for "Generate additional certificates"
-    #   - PUPPETDB_SSL_VERIFY=/etc/puppetlabs/puppet/ssl/certs/ca.pem
-    #   - PUPPETDB_KEY=/etc/puppetlabs/puppet/ssl/private_keys/puppetboard.pem
-    #   - PUPPETDB_CERT=/etc/puppetlabs/puppet/ssl/certs/puppetboard.pem
+      - PUPPETDB_SSL_VERIFY=/etc/puppetlabs/puppet/ssl/certs/ca.pem
+      - PUPPETDB_KEY=/etc/puppetlabs/puppet/ssl/private_keys/puppetboard.pem
+      - PUPPETDB_CERT=/etc/puppetlabs/puppet/ssl/certs/puppetboard.pem
     volumes:
       - puppetserver-ssl:/etc/puppetlabs/puppet/ssl
     restart: always
