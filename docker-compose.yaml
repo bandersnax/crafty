@@ -8,7 +8,7 @@ services:
       PUPPETSERVER_HOSTNAME: puppet
       PUPPETSERVER_PORT: 8140
       PUPPETDB_HOSTNAME: puppetdb
-      PUPPETDB_SSL_PORT: 8081
+      PUPPETDB_SSL_PORT: 8080
       USE_PUPPETDB: true
       AUTOSIGN: true
       CSR_ATTRIBUTES: '{"custom_attributes": { "challengePassword": "foobar" }, "extension_requests": { "pp_project": "foo" } }'
