@@ -77,8 +77,8 @@ services:
     #   - PUPPETDB_SSL_VERIFY=/etc/puppetlabs/puppet/ssl/certs/ca.pem
     #   - PUPPETDB_KEY=/etc/puppetlabs/puppet/ssl/private_keys/puppetboard.pem
     #   - PUPPETDB_CERT=/etc/puppetlabs/puppet/ssl/certs/puppetboard.pem
-    # volumes:
-    #   - puppetserver-ssl:/etc/puppetlabs/puppet/ssl
+    volumes:
+      - puppetserver-ssl:/etc/puppetlabs/puppet/ssl
     restart: always
     ports:
       - 8088:8088
