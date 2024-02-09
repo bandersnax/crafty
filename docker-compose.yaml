@@ -13,12 +13,13 @@ services:
       AUTOSIGN: true
       CSR_ATTRIBUTES: '{"custom_attributes": { "challengePassword": "foobar" }, "extension_requests": { "pp_project": "foo" } }'
       # For private repos, use git@github.com:user/repo.git and provide SSH keys
-      # R10K_REMOTE: https://github.com/betadots/demo-control-repo.git
+      R10K_REMOTE: https://github.com/bandersnax/crafty.git 
+
     volumes:
       - puppetserver:/opt/puppetlabs/server/data/puppetserver
       - puppetserver-ssl:/etc/puppetlabs/puppet/ssl
       - puppetserver-ca:/etc/puppetlabs/puppetserver/ca
-      - /home/ken/puppet-code:/etc/puppetlabs/code/
+      # - /home/ken/puppet-code:/etc/puppetlabs/code/
     restart: always
     ports:
       - 8140:8140
